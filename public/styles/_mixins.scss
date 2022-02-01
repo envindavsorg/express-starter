@@ -1,0 +1,42 @@
+//
+// Mixins
+// --------------------------------------------------
+
+@mixin font-smoothing {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//
+// Bootstrap media queries reminder
+// X-Small				NONE	< 576px
+// Small				SM		≥ 576px
+// Medium				MD		≥ 768px
+// Large				LG		≥ 992px
+// Extra large			XL		≥ 1200px
+// Extra extra large	XXL		≥ 1400px
+// --------------------------------------------------
+
+@mixin mediamaxwidth($max) {
+    @media screen and (max-width:$max) {
+        @content;
+    }
+}
+
+@mixin mediaminwidth($min) {
+    @media screen and (min-width:$min) {
+        @content;
+    }
+}
+
+@mixin mediamaxheight($max) {
+    @media screen and (max-height:$max) {
+        @content;
+    }
+}
+
+@mixin mediaminheight($min) {
+    @media screen and (min-height:$min) {
+        @content;
+    }
+}

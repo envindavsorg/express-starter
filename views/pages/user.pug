@@ -1,0 +1,20 @@
+extends ../layouts/layout
+
+block content
+    .container-fluid
+        .d-flex.flex-column.min-vh-100.justify-content-center.align-items-center
+            .container.text-center
+                img(
+                    src='/images/hippo.png'
+                    alt='Hippo'
+                    width='120'
+                    height='120'
+                )
+
+                p.fw-light.fs-xl.text-muted response :
+                p.text-justify=user
+
+                .alert.alert-primary.d-flex.mt-5.mx-auto(role='alert' style='max-width: 37.5rem;')
+                    .alert-icon
+                        i.ci-bell
+                    div.ms-2 Refresh the page to get informations about different users. 

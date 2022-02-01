@@ -1,0 +1,17 @@
+mixin vendor-styles
+	if vendorStyles.length
+		- for (link of vendorStyles)
+			link(rel='stylesheet' type='text/css' media='screen' href=link)
+
+	link(rel='stylesheet' type='text/css' media='screen' href='/styles/theme.css')
+
+mixin vendor-scripts
+	script(src='/scripts/bootstrap/dist/js/bootstrap.bundle.min.js')
+	script(src='/scripts/axios/dist/axios.min.js')
+	script(src='/scripts/@lottiefiles/lottie-player/dist/lottie-player.js')
+
+	if vendorScripts.length
+		- for (link of vendorScripts)
+			script(src=link)
+
+	script(src='/scripts/theme.js')

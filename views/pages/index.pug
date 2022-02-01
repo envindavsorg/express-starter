@@ -1,0 +1,20 @@
+extends ../layouts/layout
+
+block content
+	.container-fluid
+		.d-flex.flex-column.min-vh-100.justify-content-center.align-items-center
+			.container.text-center
+				img(
+					src='/images/hippo.png'
+					alt='Hippo'
+					width='120'
+					height='120'
+				)
+
+				h1.montserrat.mt-4 !{process.env.APP_NAME} #[strong.text-primary.fs-sm (!{process.env.APP_VERSION})]
+				p.fw-light.fs-xl.text-muted My outstanding Express.js project
+
+				.d-flex.flex-md-row.flex-column.justify-content-center
+					a.btn.btn-outline-success.m-2(href='https://expressjs.com/fr/api.html' alt='Express Documentation') Documentation
+					a.btn.btn-outline-accent.m-2(href='https://github.com/envindavsorg/express-starter' alt='Github link') GitHub
+					a.btn.btn-outline-danger.m-2(href='/user' alt='Get user data example') Example API

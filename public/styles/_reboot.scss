@@ -1,0 +1,87 @@
+//
+// Reboot
+// --------------------------------------------------
+
+// Import Google Fonts (Roboto)
+@import url($path-to-roboto);
+@import url($path-to-montserrat);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* remove default scroll behavior */
+::-webkit-scrollbar {
+  width: 0 !important;
+  background: transparent !important;
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+::-moz-placeholder,
+::-ms-input-placeholder {
+  font-style: italic;
+}
+
+html * {
+  @include font-smoothing;
+}
+
+// Links
+a:focus {
+  outline: none;
+}
+
+a {
+  transition: $link-transition;
+}
+
+// Text Selection Color
+::selection {
+  background: rgba($accent, .15);
+}
+
+::-moz-selection {
+  background: rgba($accent, .15);
+}
+
+// Change Bootstrap default .container-fluid paddings
+@include media-breakpoint-up(xl) {
+  .container-fluid {
+    padding-right: $grid-gutter-width;
+    padding-left: $grid-gutter-width;
+  }
+}
+
+small {
+  font-weight: inherit;
+}
+
+// Remove top padding from body when screen size below lg (992px)
+@include media-breakpoint-down(lg) {
+  body {
+    padding-top: 0 !important;
+  }
+}
+
+// Disable button :focus outline
+button:focus {
+  outline: none;
+}

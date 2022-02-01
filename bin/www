@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+const http = require('http');
+const {
+    red, yellow, bold, underline, green
+} = require('colorette');
+
+const app = require('../app');
+
+const PORT_HTTP = process.env.PORT_HTTP || 3000;
+const HOST = process.env.HOST || 'localhost';
+const httpServer = http.createServer(app);
+
+httpServer.listen(PORT_HTTP, () => {
+    console.log(underline(bold(yellow(process.env.APP_NAME))), 'is running at', underline(bold(green(`http://${HOST}:${PORT_HTTP}`))), 'in', yellow(process.env.NODE_ENV), 'mode.');
+    console.log('Press', bold(red('CTRL-C')), 'to stop server.\n');
+});
+
+let ONLINE = true;
+
+const gracefulShutdownHandler = function gracefulShutdownHandler(signal) {
+    console.log('\n');
+    console.log('Caught', bold(red(signal)), 'gracefully shutting down.');
+    ONLINE = false;
+
+    setTimeout(() => {
+        console.log('Shutting down', underline(bold(yellow(process.env.APP_NAME))));
+
+        httpServer.close(() => {
+            console.log('👋 All requests were stopped, i\'m shutting down.');
+            console.log('\n');
+            process.exit();
+        });
+    }, 0);
+};
+
+process.on('SIGINT', gracefulShutdownHandler);
+process.on('SIGTERM', gracefulShutdownHandler);
